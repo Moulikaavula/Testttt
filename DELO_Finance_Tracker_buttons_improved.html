@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>DELO Finance Tracker</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABSklEQVR42rVSsYrCQBCdWW8bQZTtUgSxUtIkWAhi5XfkQ/IlfoI/YJMy5D9WNASESFYQMW6y2ewVe8gh13jHTTEMw3vM481DYwy8UwTerD8Quq77EWGMsbItgNiV1pqQL3Jd123bPgmIiIiPx8MCemEYxnF8v98555PJZLPZOI5zvV6FELvdLgiCqqqyLMuyLI5j3/eJUqosy+Vyud1upZRlWd5uN8aYUkoIAQBJknDOF4vF8XhM05QYY5RSiOi6LgAopRhjiNg0jdbaqk+SpOu61WrV7/d7URRJKUej0Xw+Z4wVRTEej6uqGg6HWmtKqe/7UsrL5eJ53nQ6xefjDocD53y9Xud5vt/vZ7MZAAgh6roOgoBSiogAQKxF1jWtdVEUg8GAUno+nznnxhgp5el0QkRrK74bjY+XBxFC7ICI37vV85sL/x++TwfW19Oej1vtAAAAAElFTkSuQmCC">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADmklEQVR42u1WvUsrSxSf2ewmm7h+gagQ1GjQIkZEEGJlELEURLAwEFKqjY1gkX8hYicWQdTWwsLCLjbxozAalfg0fnA1xmSzERKzKtkkM+cWk5sX9D54xbu8xl+xHM6eOb8z54vBAID+JDj0h/FN8E3w3xAAQKlUYgIhpHoyKKWEkMovpqzYVwMA2MHKEQb820EDAIzxvw+zYv9V4BFCt7e3q6urHo8nHo/H43G3220ymQghOp1uc3MznU6Pj4/LshwMBhcWFoxG49nZ2fr6utfrbWlpYfFhjPP5fDQazWQyR0dHFotlenqaUspxHAKAWCxmMpmen5/f39+Xlpbsdns6nS4WiwDg9XqdTieltFAo7O7uyrIMAKFQSJKkt7c3AKCUUkrZwUQiUSqVHh4ebDbb3NxcOZMAIMtyZ2dnMplkeXQ4HLOzs0z2+XwTExPMlFLKlH9dXnZ3d+fzeQBgcfj9/sXFRQDQNA0A7u7uEELhcBgAuE9Fo5ROTk7u7+9XkpvJZKLR6MrKytraWtnml19mgBAKBoPsNhyHCSFWq7W/vz8QCJRr8KkN9Hp9XV1dhU+SJKvV6nK5NE372jaUUoRQfX39wcEBx3GEEACKMbbb7TzPl9tUp9PxPK/X6zHGHMednJy4XC7mhed5QRB4nm9qajKbzfl8/pO9wWBACLnd7sPDw+PjY0EQBEHgOE6SpLGxsfINstmsLMvJZJLjuPPz876+vpmZmUKhoNfrk8mkoiivr6+apm1sbAwNDQ0PD6fTaUVREomE0Wjc2dnp7e11OBw+n8/lci0vLw8MDKRSqampKZvNRinFAKAoysXFhdlsNhgMHMdZLJZKHk5PT1VV7ejoAICrq6uRkRFRFGOx2M3NjdlsFgTh8fHR4XDU1tYihO7v70OhUHt7u9VqbW5uLo8CfAGlNJVKJRKJaqWiKABQ6TQGVuqPj49MJsNWQLUTJvCsXJRSjDHGmBDC8/zW1lYkEpmfn395eRkcHBRF0e/3d3S0//jx4PF4np6eGhsbU6mUpmnZbLatrS0cDo+Ojvb09LDhYq7+3kUYY51OV/1DFMWamhpCSCQSEUURIeR0OrPZ19bW1svLy0AgcH19vb29zcJSVVVV1b29Pe4XqtfM73dRLpdDCGmapqpqV1cXIaRUKhkMhlwuJ0lSsVgUBEHN5USjkXGwEWtoaPjqCv8/r4rK0H2ir1Z++v5ToPj7XfRN8E2AfgJuGK433XvWXgAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/png" sizes="48x48" href="data:image/png;base64,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">
+    <link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADmklEQVR42u1WvUsrSxSf2ewmm7h+gagQ1GjQIkZEEGJlELEURLAwEFKqjY1gkX8hYicWQdTWwsLCLjbxozAalfg0fnA1xmSzERKzKtkkM+cWk5sX9D54xbu8xl+xHM6eOb8z54vBAID+JDj0h/FN8E3w3xAAQKlUYgIhpHoyKKWEkMovpqzYVwMA2MHKEQb820EDAIzxvw+zYv9V4BFCt7e3q6urHo8nHo/H43G3220ymQghOp1uc3MznU6Pj4/LshwMBhcWFoxG49nZ2fr6utfrbWlpYfFhjPP5fDQazWQyR0dHFotlenqaUspxHAKAWCxmMpmen5/f39+Xlpbsdns6nS4WiwDg9XqdTieltFAo7O7uyrIMAKFQSJKkt7c3AKCUUkrZwUQiUSqVHh4ebDbb3NxcOZMAIMtyZ2dnMplkeXQ4HLOzs0z2+XwTExPMlFLKlH9dXnZ3d+fzeQBgcfj9/sXFRQDQNA0A7u7uEELhcBgAuE9Fo5ROTk7u7+9XkpvJZKLR6MrKytraWtnml19mgBAKBoPsNhyHCSFWq7W/vz8QCJRr8KkN9Hp9XV1dhU+SJKvV6nK5NE372jaUUoRQfX39wcEBx3GEEACKMbbb7TzPl9tUp9PxPK/X6zHGHMednJy4XC7mhed5QRB4nm9qajKbzfl8/pO9wWBACLnd7sPDw+PjY0EQBEHgOE6SpLGxsfINstmsLMvJZJLjuPPz876+vpmZmUKhoNfrk8mkoiivr6+apm1sbAwNDQ0PD6fTaUVREomE0Wjc2dnp7e11OBw+n8/lci0vLw8MDKRSqampKZvNRinFAKAoysXFhdlsNhgMHMdZLJZKHk5PT1VV7ejoAICrq6uRkRFRFGOx2M3NjdlsFgTh8fHR4XDU1tYihO7v70OhUHt7u9VqbW5uLo8CfAGlNJVKJRKJaqWiKABQ6TQGVuqPj49MJsNWQLUTJvCsXJRSjDHGmBDC8/zW1lYkEpmfn395eRkcHBRF0e/3d3S0//jx4PF4np6eGhsbU6mUpmnZbLatrS0cDo+Ojvb09LDhYq7+3kUYY51OV/1DFMWamhpCSCQSEUURIeR0OrPZ19bW1svLy0AgcH19vb29zcJSVVVV1b29Pe4XqtfM73dRLpdDCGmapqpqV1cXIaRUKhkMhlwuJ0lSsVgUBEHN5USjkXGwEWtoaPjqCv8/r4rK0H2ir1Z++v5ToPj7XfRN8E2AfgJuGK433XvWXgAAAABJRU5ErkJggg==">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAb20lEQVR42u1de1QU1/2/M7MPFpb3qhhEsIpV0CivKFZpxaiEyi8xNcRqjBj1oLEErUlONKlG9PQYq6QajTGNRnJ8YXKCJlrjO6lofDaRKgpooCIPw+Ii+955/f746u10d1kWWHZJcz9/7IHZ2bl3vvO53/t93TuUKIqIgMAZaCICAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgICQg4CQg4CQg4CQg4CQg4CQg4CQg4CQg4CQg4CQg4CAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgICQg4CQg4CQg6C7oDMxXccx3XoWpQE3dFXQRAEQfDU1SiKYhjGI0136FJdhyiKgiDAC4FpmsbSxgcpipIe77yIuumlwzzPi6JI0zRNE+XkSU4ghNwkIs/z7p/sLjlEUaQoymAw7Ny5MyAgAI5Iv21pacFHKIqSyWQqlSo0NFSj0fTq1atPnz69evXyYBdhTNA0ferUqaqqKj8/P7gmhslkslgsbY1pmUymVCr9/PxomsaUFQShd+/eU6ZMEZFIIardpr/++uuKigrHpmmattlskZGRv/3tb+HMbmIGz/NYho2Njd9+++3Fixdv3rxZX19vMBgYhgkKCgoLC4uMjIyPj09KThrx+Ah/f39Mqc7JX9aGRERRFI8ePXro0CHHbxcuXKhUKgVBMJvNWq32zp07t27devDgAXwbGhoSEzNgxIgR48ePT09P79evH3QRnkqnB40ois3Nzfn5+Var1e7bUaNGpaam4mcDxBUEwWQyabXaf//735WVlSaTye5XMTExU6ZMoRAFg8F10/fv31+yZInZbHZ6zocffginddNkCtOWIAi7d+/es2dPTU2Nv7+/RqNRq9V9+vQRBKGysrK1tdXu7iZPnvzCCy+MHTuWYRie5zsz0YjOIDya1XJycmDkyWQyhUIhk8n69+/veD7LsteuXXv33XdHjx4tvXhgYOC0adOOHTsGp3EcJ3YWMOjLysrUarVcLpfLZTKZzM/PTyaTffTRR65/azKZz5w5k5ubq1KpEELwq5iYGIvFgufvdpsuLy8PDAyU47ZlMoVCoVAovvnmmy7emgvgy37yySdDhgxJS0vbuXNnY2Oj3WkGg+HkyZM5OTmgLWSy/4z59PT048ePd07+qM1usSzP85cuXQLliT8jIiJ0Oh3LsjabjWVZlmVBdhgnTpyYMGECPh8waeLECxcugKDbfRhtwWaziaKYkZGB5ymQwvr161mWNZvNrDNIu3flypXExESYbkJCQrRarTvkwE1PmTIFNw2fKSkpMDa6gxlw2du3bz/55JMqleqToqL/jF5B4DiOZVmO46Q3ePXq1czMTOieXC7HqmLWrFk//vhjR7vaJjlAZFqtNjgkBBvAQA69Xm8nU0EQeJ5nWRYf3Lp1K9grCoUCfsgwzNtvvy0di50QliAIy5cvx7SAz8LCQte3jUUpiqJerx83dizoj+rqajc7A02vWLHCrun58+cLgtAd5IBrfvnll2FhYSEhITdv3oShz3GcI5vhBrFieOedd7DzyDAMyD8mJqa0tLRD/GiHHFarNSYmBtSAC3LYaUIQ96VLl6KiooAWDMMAi6dOnWoymTrHD7irjRs3dpQcdldoamrqFxlJ03RZWZn75BBFccuWLXZNv/XWW92hOeCCH3/8MU3Tcrn8u+++w9qr3RkQKFJcXAy0ALFDb5VK5YEDB9zvcDsWolwu9/Pz65ARA31iWTY5OfnUqVORkZFY+nK5vKSkJCsrC4zKzllwoJA6GdWRyTiO02g0723eLAgCGHHudyPAP8CDnXHhmMhksv3798+ZM0cQhIKCgpEjR7IsK5fL249p0jTDMCzLZmdn79q1C/wUiqI4jmMYxmq1/u53vzt69KhMJrNzuzoTIcWzSUchl8tZlh00aNDBgwdVKhWoOLjDkydPzp49GxzLTly5i14xyOWZZ56JjY29du1ah8jByBjPdsYZMwSGYb7//vsXX3wRIdS/f//8/HxBEKQ2ppvCnz59+p///GegBXAOfPjs7Oyqqipwf3wWPocuJiUlFRYWQs8QQsCP4uLiTZs2uclfj4OiKFEUd+7c+cQTT9gZzj4Pc1EUslgsM2fOBOWak5OjUqnAm+2Ejly2bFlGRgbmB3j7ra2tL7zwAjZQfJZbkcvlHMctWLAgbVwaDuNAX5ctW1ZdXQ1c9nY+iaYpihozZkxCQkKPIgc8vHXr1pWXl4OvMXXqVNdhGNcqXxTFDz/8MCgoCF8E5qyLFy9u2bIF4h++TLxBn9a+sxbGK47AmkymlStX4oM+eRLe52W7zKhvqF+/fj3YDdHR0XFxcZ2e2WHijoqKevPNN6XRW/h7zZo1Op2OYRgX8u92cgA9U1NTx48fj+O4MMsUFxffunXLncnPs88Ay65H5X1g7tj6/la9Xg8WxtChQxUKBc/znU6hgWzz8vKio6MxP+APrVa7c+dOiqJcKA9vSAfmttzcXOkRyEoUFRVJH5gXetIzE4GiKDIMY7FYPvnkE6xNIYjQFc1KUZQgCCqVasmSJdJ7B+X98ccfu067eENS4E1Nnjw5PDwcjwNBFBBCBw4cgP55Z2qhKKqystJms/U0coDaOHv27J07d+CJIoQ0Go1HhC+K4osvvhgeHs5xHLY8EELXrl0rKytzoTxo7zwSnueDg4PHjRuH3T9REBGFbty4UVVVRVGU2M3KA8L29fX1EyZM0Ov1XRyR3aE5EELHjh2TWhhKpdJTwg8NDZ323HNS3xtIc+rUKReioL1286IopqWlSY/IGBnP8//85z+7OLO0FeGFoD7ElSE0t3z58nv37nU0rOcdBwohdP78eal76Sk/H+apmTNmOMr5woUL2GnwGTkgCAZJL7v+lZeXd91hpigKPjHA3mQYBjKoWq02/5VXioqKwkJDO1rh5h1LyGKx/PDDD9JxbJeF76LrPmrUqJiYGKlZihCqqKh4SE1nukPmNXIghAYMGKBUKq1Wq9SDvXv3blfkihD68ccfa2pqcKgH5MtxnNlsbm5urq6uPn/+/OHDhxsaGiiK4nuS+yo1D7VarVarlZKjsbHRU8LnOE6hUKSnp+/YsQNiS9DIvXv3jEZjQECAKDopevIqOTQaTXh4eH19vZQcUCXUOW8NnvSuXbtOnTolDRbxPG8yme7fv9/Q0IAVlUKhYFkW9VQ8ePAA17OBcO7cuePZGN1vfvObHTt2YE4ihPQGvV6vDwgIcFoRJ/Pm/fv7+4eGhtbX19uZil0xxTmOy8vLW7JkCcdxOAEBNofNZmttba2trT1//vy+ffvOnTvXaRZ2r+ZAIkIIfCgYNkCO6upqi8Xi5+fXuSCpo02TlJRE0zTPc/hqrI19WFknIsdqSe/ZHHDDkMaU3mrXbXJsZEgNDplM5u/vHxERkZKSkpeXd/bs2a1bt0K7PY0fMGRxjSOWVUNDQ01NjUccKzyt9+3bVxTdlYD3IkJwh45557CwMI/cv90V7EoceJ5bsGDBW2+9pdVqe2YczN/fn5EEqSArefnyZY8ECXE07Be/+IV0eCgUCheD09ticiQBVCB3k38EpVAymYyiaJ7nly5dmpKS4lii7GPNQVEIoZCQkIDAQLuvTpw4gRDyiKYDhkHUFa8sUqvVgYGBbWlT2ssikD4YIMrgwYO9E0hgGCY4OPjkyZMhjwofexRFwsLC+vTujTsGz/LEiRNms5lhZJ4K2UVGRuLngRCKiIh46Kr4kBx4KjUYDA//RRQk8R9//HHkrby5KIpqtdqbq9PcHDYgil/+8pdScjAMU1dXB9XtAu8ZDxyH5EHg0KLgw/A5hsFgaGlpAduYoimE0MCBAwcNGtR1a7yjdnEPDHUghGBhBxYF/LFjxw6Kcr3wqmOWjfTf1NTUh06tD8kBN9/U1HT//n1w3oC5EydNBMvLa0q+B7qyuFcTJ05ECPECj518iqK+/PLLGs9VReGLQNVEenq6C7XtVXLcvn2bZVmoUIJezpwxs8c+MG+CZmhRFBMTE4cOHYpExNAMkuTxNxRuwKnarofa0KP028iRI4cNG+aijMGriTdwzMA2FEVx1KhRo0eP7vRKzm7ynnwV6oACvpdeekkURZhz8fjevn3H7du3PVIVBVFXmF7nzZvn+2If9Cj3A44ZNk5XrFjhcyPAJ0rL6S3DgJn70ksajUa67peiKLPZvHTp0i4qD7jg9evXEUKw+HvWrFmgnHxJDqhkqa2tPfftOYQQTVMcx2VmZmZmZkoXj3sfPM+D9+RlZjhl5MPCi7CwFStWSEs+QUQHDx7cu3cv1JR3rlGappuamq5eLQPzZfWa1Wq1WnBp7XmPHB/v2GExWxQKBcfxoaGhH3zwgdecFEdAYf727dtfe+011PFtarruMbWlPHief/nll8eMGSNNFQmiSNP0woULb9261bn1HPCTo0eP6vWtgiBMmjRpTs4cnucZl8thaC8wg6bp5ubm9zZvhllTFMVdu3ZFRUV1bkMLj0xDEDxdt25dh/RWF5sGM9xgMGRkZDz02v77gjgxtGvXLqjqe1Q1JyAKPXjwYOrUqQ8ePGh3SYFTmwYh9P777yOEoqKiioqK3BmZdLuPtiujClIbNE3n5+dDsQLHcTt27MjMzJSWX3QIXU+7syzLMMyePXtu374dHR3ttaY5joNlKadPnw4KCmrLMhAEYcCAASUlJSqVCk+7Ai8wDHPt2rUpU6bo9XpIR7vZrs1mY2TM7t27v/3227CwsIMHD0ZERLgzMtv52mq1SrY9gVUn7g4gKNuUy+Xr16/fvXs3QkihUOzdu3fOnDlSndlRdLE+CpbcVVZWvvJKHkVRsGOHF5q22WxyubysrGzt2rWDBg1ysfAVHvy4ceMOHz4cEhLC8zwUuYE7U1pamp6eXlNTA/OLaxUiiiLL2hQKxY0bN+bMmdOvX79jx44lJCS4aerRrr1PnU7X3Nz86D+EEDIaDWazGdZGO/VX8UJvWFxfUFAA83pSUtKZM2emT5/eFWaIolhbW+vUlGuLsna9ksvlFRUVmZlPNTffF0XR/ZXQTptGj3Y/a6uOFdoVBEGhUFRVVT3zzDMsy0Jyx4ViB8Nz/PjxpaWlCQkJsCge2CBjmMuXL48ePfrTTz8FCeOdDYRHeJSI5imKkssVZ8+eTUlJGTVqVGlpaVJSUgecANe7AHzxxRfQV5gOZQyDEDpy5Ig7e56cPn06OTkZIfTYY4+tW7fOarV2ZQccuG1RFBMSEiDXiutG58+f7+YeLCzLbt++HfILSqWSoqj9+/e7syUBXDw5ORk2GcOfzz//vJv937dvX0REBFD5ySefdGfrB5CVyWR64403cFE07MoCf2dlZf3jH/9wcYW7d+vy8/M1Gk1BQQHcQofk76p0u66ubvjw4Y58Gjhw4JkzZ2CbDelPDAZDdXX1V1999cYby+Lj4xFCcXFxmzZtgg10Or1nC5aUIAh//etfHfujVCqLi4thDyfHGzGZTHfv3j19+vTKlSvj4uLsfnvo0KF2RQZNb9682alhW1hY2NjY2NraapCgtbW1qampqqrq+PHjBQUFsCgXhyZhBaw7zwlL7Pr163Pnzg2U5PSx9h0zZsyqVauOHDly7dq1H3744caNG6dOnSosLMzKyho8ePDs2bNv376N1ViHZO58N0GE0P3798eOHQu79+FV3qAJbTYbwzCxsbFBQUFYMXI8Z7PaOI6Ty+VRUVFjx4596qmngCI40tdpxxU0YWFhIYwhu4kW9taJi4tztPJYljUYDM3NzU1NTXAXkKHGewoePXp07NixLjQtfLVx48bXXnvNsWlRFM1m82OPPaZWq+26ZLFY9Hp9a2sryFOtVkOjHMfl5OS8//77bk6v0u0A79y5U1JScujQoStXruh0urZ+EhgYOGzYsKeffnrmzJlQLtO5eFKbAUqO4+rr6+VyueMJ4KlbLBappBiGUalUISEhdiYeeCVdjGcAKZuamsBEd9olsIQcj8PmODKZDBxpuyCjRqNRKBTtNq3Vam02m9N4LqzrtGtaWmcELJS2GxAQEBwc3NGIgDSa2dTUdPPmzcrKytra2paWFhiTISEhUVFRQ4YMiYuLA7MGPcreda4iwvPRa1CGqOetVP4fAJDMHcHCmV0clq7I0aG9Ne2qELop8Cytv/VIpNJN+nqqabhC13cAl+5w7VRZeuQp9NDiF4KeAKL2CQg5CAg5fkKmZc/vpI9tDvx+EKmn49nXl4iiSD2qoXU006Svf/DCDTo6yW6e/PPSHDabzWg0YrvdarUCLXBAoutNGI3Gh3vZtP2KILz2SRAE2NTFU+B53mw2t9UurCaXSoNl2e57j9FPhhzgFjY0NLz33nvJyclJSUmjRo36wx/+MG3atOTk5Nzc3NLSUihC7mIT58+fnzt37ogRI5KTk3/1q1/du3cPFzbDKTzPZ2VlJSYmJicnT5s27fTp0x6p+sHJhLVr1yYlJSUmJsIabvxSgEWLFg0dOrSgoAAhBLH5xsbGvLy8xMTE1NRU2HmhR8w7oi+Ak0CQiwoPD9fpdFqtdsaMGdCr7du3S7MPggTSf13l2LiHG8v37dsXrrlmzRqcY4PPw4cP43qOv/zlL04zcJAWd9qWtA92XYIsxo0bN+Dihw8fxrvr8zwPjaampsI9QqN79+6Fk2tqanBCp9NvmPAIaB+SkmGYvn370jQdGBioVCrDw8MLCwshrrx69Wq8iAE5vD3OnTfJwVt2FApFfn5+fHw8wzDbtm0zGo2Q44bd2U+cOJGbmws7QkFZr6MCgHCk0yptaR+cdolhGKVSCUv+pWG3/fv3L168+KOPPsIWhiiKfn4qmqbVajUcgeCmb2cZn5EDbhuPD3g3ir+/v0KhgC1acbaPZVmdTmexWCwWC+TPdDqd0Whsbm52PfXAy8j69+8/Z84cnudra2uLi4shcUjT9LFjx6KjowcPHgyKAcq07KxFmqYrKiouXrwIxWNS9uj1eqPRCAkmm83W3NwMPbR75ZnwSOs8FDdNa7XalJSUd999F1LE0ChFUVj70DRtMBh0Op3JZGpsbPTh/NIjXFmapoOCguRy+ZEjR5qamnienz9/vlKpxAUNubm5gwYNio2N3bRpE8/zlZWVo0eP/nDbtnZ3IWYYxmg0zps3z8/Pj6Io+Dm4QiUlJdOnTzcajY7eCvDy7t27mZmZr776aklJyYgRI4qKiqQptMrKyieeeCI2NnbdunUGg2Hp0qWxsbHDhg2rq6v7j8VA/deOKHDwypUrw4YN69u37+uvv44captxinH27NnDhw//+9//DkLwyXOR+ZYWcNutra0bNmyoqKgoKiqKi4tbuXJldnY2VMUJghAcHLxmzZr4+HiO4yIjI+VyeUpKysiRIxcvWeJ6d2agncFgCA4OfvbZZ/fs2XP16tWvvvoqMzPz0qVLSqWyT58+jh4KPB6j0ZiRkXH9+vXq6uqYmJjy8vKcnJywsLCsrCzQMbBLzt27dxsaGsLCwp5++mlgj4s6U/CJJk+eHBgUWF5e7jTnDvt3DRgwQBCELVu2ZGRk+LBG38eaA26bppnevXtHRUVFREQ0NjZ+/vnnV69eBTUOG3gPHjz4ueeeo2l627ZtCKHLly8nJyerVCq866prfoiiuHjxYpjF169fT1HU3r17s7OznSbewKP+7LPPrl+/PmjQoF69evE8nzpmDE3Tq1evhi6BvQb2hEKhwAUioJ/aDX+p/FRQSODkW1GIiIgoKCiYN29eRkYG+Lc/62lFrQ6YNWvWn/70p6+//tpqtRYXF0+YMKG2thav8RJFEV6Y9f333//rX/+6ceNGSkoKcm/jBjAnU1JSYNHwuXPn9u3bBxW8Lgodzp07R9O0UqkEG0gukwmCUFVV1dTUBOQA6xLsCbxpgjtb7eK5yanOC1QHrlq1atWqVVDX7duahx5BDogKsCw7YMCASZMmMQzT3NxcUlIC5AAT4de//jVUj65YsaKuri4xMbGjG5n/8Y9/BCczJydn2rRprn8r9WnRo/I+sD2dzoxdNxvhOiaT6bPPPhMEYdGiRRAo+zkapDDsHF1TrGylBVpQZQiLjA8cOBAWFupYsecifwHOyMSJExMSEkRRHDlyZFpaGn5dobQ/+Lfx8fEQmYAqLzBjNRpN79697YwA4M3D6s7/LvgQeAEsUumV8d/Schn8N03Thw4dGjJkSEtLS15eXqffZ/WTd2XxnhM8zwcEBMhksurq6qNHj/I8379//2effRYXxsHn73//+8DAQIVC8X//97Q7KhfXvICIGYZZvHixIAivvvoqerQUD1MQv8USZo0ZM2YEBwdXV1eLgsgwTG1tLc/zubm5SqUSL4NQKBQURel0Op7nP/30U2hLWiWJa1qlFaawyQB6VP6OpQGLJGw228CBAz/44AM/P7/PP/98z549crncZ/zwSXiU5/n6+vrdu3fjivuXX355+fI3+/XrFxwcnP18NhRM42ppjuMghDBjxowxY8a0W7oNTXz33XdpaWlxcXGnT582m82CKOh0uokTJxoMBlEUjUYjLBCCDkyaNOnSpUswm0C733zzTWRk5MKFC4uLizUazUtzX8LRUrzUFn6blpaWnZ1tFww1Go0bNmyAg8uWLTOZTHDxCxcuQFw4KSnpzp07sMakqalp0aJFcPLf/va3lpYW2NlNrVYfP368E4XjHoEPsrKglhsaGqqrq/39/WGkPnjwADb3j46ODg0NdZq0FAThwIGD935sXJC7ABxd1w2Vl5fr9Xq4fkJCAkxYJpMJtj6yWq1lZWWwASNCyGw2K5XKxx9/XPrGmtbW1i+++ELX0jImNTUpKcnxLkpLSysqKlJTU4cOHVpWVoYQ8vf3j42NhYbKysr8/f2RKFqs1uHDh0ND169ft1qtcrncYrFE9uv3WN++CKHm5uZbt26pVCqgZv/+/evq6qBUXaFQwBznfbelJ5YJSgum4SHt27fvzJkzW7Zs2bhx45QpUwYOHOgFYdmtJnVcXOrDCMT/eBCsreplu2IOkP7rr79eW1sbHx8vCMLAgQPdXJ4vNQPtXlLkeILdadj4AKPVacE3XoYJxo00DeSiA9KD+GQ7adhVMvvKoWXefvttXxmkbcFxdPbq1au2ttZisSxbtgwCTe4MWafXtPvbRdPYanZRzI2/bast1wcd83btCuTnPq0Q9BD8NGpIQXu3FVUkIJqDgGgOAkIOAkIOAkIOAkIOAkIOAgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgICQg4CQg4CQg4CQg4CQg4CQg4CQg4CQg4CQg4CQg4CAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAkIOAgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgJCDgICQg4CQg4CQg4CQg4CQg4CQg4CQg6C/wn8Pw0JD4ViBW0LAAAAAElFTkSuQmCC">
+    <style>
+        :root { color-scheme: light; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            color: #000000;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        /* Full-page side vignette: equal-sized left/right bands, with no darker corners. */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background: linear-gradient(
+                to right,
+                #555555 0%,
+                #666666 4%,
+                #858585 9%,
+                #aaaaaa 14%,
+                #d2d2d2 20%,
+                #eeeeee 26%,
+                #fafafa 31%,
+                #ffffff 36%,
+                #ffffff 64%,
+                #fafafa 69%,
+                #eeeeee 74%,
+                #d2d2d2 80%,
+                #aaaaaa 86%,
+                #858585 91%,
+                #666666 96%,
+                #555555 100%
+            );
+        }
+        /* Side vignette is intended for tablets and larger screens. Keep phones clean. */
+        @media (max-width: 600px) {
+            body::before {
+                display: none;
+            }
+        }
+
+        /* --- Dark Mode Variables & Classes --- */
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-theme h1, 
+        body.dark-theme .static-title, 
+        body.dark-theme .category-header,
+        body.dark-theme .by-text {
+            color: #ffffff;
+        }
+        
+        body.dark-theme .pill {
+            background: #1e1e1e;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        body.dark-theme .add-btn {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+        body.dark-theme .add-btn:active {
+            background: #333333;
+        }
+        body.dark-theme #theme-btn {
+            color: #ffffff !important;
+            border-color: rgba(255,255,255,0.3) !important;
+        }
+        body.dark-theme .status {
+            color: #aaaaaa;
+        }
+        body.dark-theme .currency-btn {
+            background: #1e1e1e;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        body.dark-theme .currency-menu {
+            background: #1e1e1e;
+        }
+        body.dark-theme .currency-search-container {
+            background: #121212;
+            border-bottom: 1px solid #333;
+        }
+        body.dark-theme .currency-search-container input {
+            background: #2a2a2a;
+        }
+        body.dark-theme .main-section-title {
+            border-bottom-color: rgba(255,255,255,0.2) !important;
+        }
+        body.dark-theme select.main-input option {
+            background: #1e1e1e;
+        }
+        
+        .container { 
+            max-width: 450px; 
+            margin: 0 auto; 
+            padding-bottom: 50px;
+        }
+        h1 { 
+            text-align: center; 
+            color: #000000; 
+            text-transform: uppercase; 
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 700;
+            letter-spacing: 1.5px; 
+            font-size: 23px;
+            line-height: 1.15;
+            margin-bottom: 3px;
+            margin-top: 0;
+        }
+        .status { 
+            text-align: center; 
+            font-size: 12px; 
+            color: #6b7280; 
+            height: 16px; 
+            margin-bottom: 30px; 
+        }
+        
+        /* Currency Menu */
+        .top-right-actions {
+            position: relative;
+            top: auto;
+            right: auto;
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: 6px;
+            margin-bottom: 8px;
+            z-index: 100;
+        }
+        .currency-btn {
+            background: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+        .currency-btn:active {
+            transform: scale(0.9);
+        }
+        .currency-menu {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: #000000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+            width: 140px;
+            display: flex;
+            flex-direction: column;
+        }
+        .currency-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .currency-search-container {
+            padding: 8px;
+            background: #111111;
+            border-bottom: 1px solid #333;
+        }
+        .currency-search-container input {
+            width: 100%;
+            box-sizing: border-box;
+            background: #222222;
+            border: none;
+            color: #ffffff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            outline: none;
+        }
+        .currency-search-container input::placeholder {
+            color: #888;
+        }
+        .currency-list {
+            max-height: 160px; 
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #555 #000;
+        }
+        .currency-list::-webkit-scrollbar {
+            width: 5px;
+        }
+        .currency-list::-webkit-scrollbar-track {
+            background: #000;
+        }
+        .currency-list::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 10px;
+        }
+        .currency-option {
+            color: #ffffff;
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: block;
+        }
+        .currency-option:hover {
+            background: #333333;
+        }
+        .currency-option.active {
+            color: #4ade80;
+        }
+
+        /* Category Headers */
+        .category-header {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            margin-top: 60px;
+            font-weight: 700;
+            color: #000000;
+            width: 100%;
+            text-align: center;
+        }
+        .static-title {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            font-weight: 700;
+        }
+        
+        /* Individual Pill Styling */
+        .pill { 
+            background: #000000; 
+            color: #ffffff; 
+            border-radius: 40px; 
+            padding: 20px 30px; 
+            margin-bottom: 12px; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+        }
+        
+        /* Animation classes */
+        .item-row {
+            transition: all 0.3s ease;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .item-row.removing {
+            opacity: 0;
+            transform: scale(0.9) translateX(-20px);
+        }
+
+        .pill input.main-input { 
+            background: transparent; 
+            border: none; 
+            border-bottom: 1px dashed transparent;
+            color: #ffffff; 
+            font-size: 18px; 
+            font-weight: 600; 
+            outline: none; 
+            transition: border-bottom 0.3s ease;
+            padding-bottom: 2px;
+        }
+        .pill input.main-input:hover, .pill input.main-input:focus {
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+        }
+        
+        .name-wrapper {
+            display: flex; 
+            align-items: center; 
+            width: 50%; 
+            position: relative;
+        }
+        .name-wrapper input.main-input {
+            width: 100%;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+        .edit-icon {
+            position: absolute; 
+            right: 0; 
+            color: #aaaaaa; 
+            pointer-events: none; 
+            font-size: 16px; 
+        }
+        
+        .pill input.main-input.amount-input { width: 40%; text-align: right; }
+        
+        .pill input.sub-input, .pill select.sub-input, .pill select.main-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            transition: border-bottom 0.3s ease;
+        }
+        
+        .pill input.sub-input, .pill select.sub-input {
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+            color: #cccccc;
+            font-size: 12px;
+            width: 60px;
+            text-align: center;
+        }
+        .pill input.sub-input:focus, .pill select.sub-input:focus {
+            border-bottom: 1px dashed #ffffff;
+            color: #ffffff;
+        }
+        
+        .pill select.sub-input, .pill select.main-input {
+            cursor: pointer;
+            width: auto;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .pill select.sub-input { padding: 2px 5px; }
+        .pill select.main-input { padding: 0; }
+        
+        .pill select.sub-input option, .pill select.main-input option {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        input::placeholder { color: rgba(255, 255, 255, 0.4); font-style: italic; font-weight: 400; }
+        
+        .delete-btn { 
+            background: transparent; 
+            color: #ff4d4d; 
+            border: none; 
+            font-size: 18px; 
+            cursor: pointer; 
+            font-weight: bold;
+            padding-left: 10px;
+            transition: transform 0.2s ease;
+        }
+        .delete-btn:hover {
+            transform: scale(1.2) rotate(90deg);
+        }
+        
+        .add-btn { 
+            background: transparent; 
+            color: #000000; 
+            border: 2px solid #000000; 
+            padding: 12px 20px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-size: 16px; 
+            font-weight: 700;
+            margin-top: 5px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+        .add-btn:active { 
+            transform: scale(0.98); 
+            background: #f0f0f0; 
+        }
+        
+        .balance-amount { font-size: 28px; font-weight: 800; transition: color 0.3s ease; }
+        .negative { color: #ff6b6b !important; }
+        .positive { color: #4ade80 !important; }
+
+        /* Remaining Balance timeframe selector: optimized for phone/iPad Safari */
+        #balance-timeframe {
+            color: #ffffff;
+            -webkit-text-fill-color: #ffffff;
+            background: transparent;
+            max-width: 62%;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #balance-timeframe option {
+            color: #ffffff;
+            background: #000000;
+        }
+
+        @media (max-width: 420px) {
+            #balance-timeframe {
+                font-size: 16px !important;
+                max-width: 58%;
+            }
+
+            #total-balance {
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+        }
+        
+        /* Divider & Monthly Section Styling */
+        .section-divider {
+            margin: 50px 0 35px 0;
+            border: none;
+            border-top: 2px solid #000000;
+            position: relative;
+        }
+        
+        /* Debit Card Ledger Card */
+        .ledger-card {
+            background: #000000;
+            color: #ffffff;
+            border-radius: 28px;
+            padding: 24px;
+            margin-top: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .ledger-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 14px;
+        }
+        .ledger-title {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .month-selector {
+            background: #1a1a1a;
+            color: #ffffff;
+            border: 1px solid #444;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        /* Category summary cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .summary-box {
+            background: #141414;
+            border-radius: 16px;
+            padding: 12px 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .summary-box-label {
+            font-size: 11px;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .summary-box-amount {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        .summary-box.total-box {
+            grid-column: span 2;
+            background: #1f1f1f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-color: rgba(255,255,255,0.2);
+        }
+        .summary-box.total-box .summary-box-label {
+            margin-bottom: 0;
+            font-size: 12px;
+            color: #ccc;
+        }
+        .summary-box.total-box .summary-box-amount {
+            font-size: 20px;
+            color: #fbbf24;
+        }
+        
+        /* Transaction History Row */
+        .tx-row {
+            background: #111111;
+            border-radius: 20px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.35s ease-out;
+        }
+        .tx-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tx-name-wrapper {
+            display: flex;
+            align-items: center;
+            width: 55%;
+            position: relative;
+        }
+        .tx-name-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px dashed transparent;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            outline: none;
+            width: 100%;
+            padding-right: 18px;
+        }
+        .tx-name-input:focus {
+            border-bottom: 1px dashed rgba(255,255,255,0.5);
+        }
+        .tx-amount-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 40%;
+        }
+        .tx-amount-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px dashed transparent;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: right;
+            outline: none;
+            width: 80px;
+        }
+        .tx-amount-input:focus {
+            border-bottom: 1px dashed rgba(255,255,255,0.5);
+        }
+        .tx-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: #777;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .tx-date-input {
+            background: transparent;
+            border: none;
+            color: #999;
+            font-size: 11px;
+            outline: none;
+            font-family: inherit;
+        }
+        .tx-cat-select {
+            background: #1e1e1e;
+            color: #4ade80;
+            border: none;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+        }
+        .tx-cat-select option {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Footer Styling */
+        .footer-container {
+            text-align: center;
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-text {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 64px;
+            letter-spacing: 10px;
+            font-weight: 400;
+            margin-left: 10px;
+        }
+        .data-transfer {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 520px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .data-transfer-btn {
+            background: transparent;
+            color: #000000;
+            border: 1px solid rgba(0,0,0,0.28);
+            border-radius: 20px;
+            padding: 9px 14px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+        .data-transfer-btn:active {
+            transform: scale(0.98);
+            background: #f0f0f0;
+        }
+        body.dark-theme .data-transfer-btn {
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.28);
+        }
+        body.dark-theme .data-transfer-btn:active {
+            background: #222222;
+        }
+        #data-file-input {
+            display: none;
+        }
+
+        .by-text {
+            font-size: 20px;
+            color: #000000; 
+            margin-top: 4px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            font-family: 'Courier New', Courier, monospace; 
+            text-transform: uppercase;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Super Cool Full Screen Overlay */
+        #toast-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.15s ease-in-out;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        #toast-container.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .toast-message {
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: 900;
+            text-align: center;
+            padding: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 10px 40px rgba(255,255,255,0.4);
+            transform: translateY(30px) scale(0.8) rotate(-3deg);
+            opacity: 0;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 2;
+        }
+        #toast-container.show .toast-message {
+            transform: translateY(0) scale(1) rotate(0deg);
+            opacity: 1;
+        }
+        
+        .emoji-particle {
+            position: absolute;
+            font-size: 50px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            animation: explodeUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes explodeUp {
+            0% { transform: translateY(50px) scale(0.2) rotate(0deg); opacity: 0; }
+            15% { opacity: 1; }
+            100% { transform: translateY(-300px) scale(1.5) rotate(720deg); opacity: 0; }
+        }
+        
+        .details-row {
+            font-size: 12px;
+            color: #888888;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .text-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            padding: 0;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+        .text-btn:hover { color: #fff; }
+        .dismiss-debt { color: #ff4d4d; font-size: 12px; }
+        .payoff-row {
+            font-size: 12px;
+            color: #fbbf24;
+            font-weight: 700;
+            padding-top: 7px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .dismiss-btn {
+            color: #ff4d4d;
+        }
+        .dismiss-btn:hover { color: #ff8080; }
+
+
+        /* Responsive layout: phone, tablet, laptop and desktop */
+        *, *::before, *::after { box-sizing: border-box; }
+        html {
+            width: 100%;
+            min-width: 0;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            width: 100%;
+            min-width: 0;
+            padding: max(14px, env(safe-area-inset-top))
+                     max(14px, env(safe-area-inset-right))
+                     max(24px, env(safe-area-inset-bottom))
+                     max(14px, env(safe-area-inset-left));
+        }
+        .container {
+            width: 100%;
+            max-width: 680px;
+            min-width: 0;
+        }
+        h1 {
+            font-size: clamp(20px, 3.2vw, 30px);
+            letter-spacing: clamp(1px, 0.25vw, 2px);
+            overflow-wrap: anywhere;
+        }
+        .status {
+            margin-bottom: clamp(16px, 2.5vw, 26px);
+        }
+        .top-right-actions {
+            margin-top: 4px;
+            margin-bottom: clamp(8px, 1.5vw, 14px);
+        }
+        .pill {
+            width: 100%;
+            min-width: 0;
+            padding: clamp(16px, 2.5vw, 22px) clamp(18px, 4vw, 30px);
+        }
+        .name-wrapper,
+        .pill input.main-input,
+        .pill select.main-input {
+            min-width: 0;
+        }
+        .pill input.main-input.amount-input {
+            min-width: 0;
+        }
+        .currency-menu {
+            max-width: calc(100vw - 28px);
+        }
+        .toast-message {
+            font-size: clamp(28px, 6vw, 42px);
+            max-width: 95vw;
+        }
+
+        @media (min-width: 768px) {
+            body { padding: 28px 24px 40px; }
+            .container { max-width: 620px; }
+            h1 { font-size: 28px; }
+        }
+
+        @media (min-width: 1200px) {
+            body { padding-top: 36px; }
+            .container { max-width: 680px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding-left: 12px; padding-right: 12px; }
+            .container { max-width: 100%; }
+            h1 { font-size: clamp(19px, 6vw, 24px); }
+            .currency-btn { width: 38px; height: 38px; }
+            .pill { padding-left: 18px; padding-right: 18px; }
+            .name-wrapper { width: 52%; }
+            .pill input.main-input.amount-input { width: 40%; }
+        }
+
+        @media (max-width: 360px) {
+            body { padding-left: 10px; padding-right: 10px; }
+            .pill { padding-left: 14px; padding-right: 14px; }
+            .pill input.main-input { font-size: 16px; }
+            .name-wrapper { width: 54%; }
+            .pill input.main-input.amount-input { width: 38%; }
+            #balance-timeframe { max-width: 56%; }
+            #total-balance { font-size: 19px; }
+        }
+
+        @media (orientation: landscape) and (max-height: 520px) {
+            body { padding-top: 10px; padding-bottom: 18px; }
+            .footer-container { margin-top: 40px; }
+        }
+
+        /* High-quality visual rendering */
+        html {
+            scroll-behavior: smooth;
+            text-rendering: optimizeLegibility;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-kerning: normal;
+        }
+        h1, .category-header, .static-title, .pill, .add-btn,
+        .currency-btn, .currency-option, .by-text, .balance-amount {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        .balance-amount, .pill input.main-input.amount-input {
+            font-variant-numeric: tabular-nums lining-nums;
+            font-feature-settings: "tnum" 1, "lnum" 1;
+        }
+        button, input, select {
+            font: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .pill, .add-btn, .currency-btn, .currency-menu {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        .pill, .add-btn {
+            contain: layout paint;
+        }
+        .currency-menu {
+            contain: layout paint;
+        }
+        @media (min-width: 768px) {
+            body {
+                padding-left: max(24px, env(safe-area-inset-left));
+                padding-right: max(24px, env(safe-area-inset-right));
+            }
+        }
+        @media (min-width: 1440px) {
+            .container { max-width: 720px; }
+            h1 { font-size: 30px; }
+        }
+
+    
+        /* iPad/iPhone typing stability */
+        input, select {
+            font-size: 16px;
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+
+    .one-time-details { gap: 18px; flex-wrap: wrap; align-items: center; }
+    .one-time-field { display:flex; align-items:center; gap:7px; min-width: 180px; flex: 1; }
+    .one-time-field > span { color:#888; white-space:nowrap; font-size:12px; }
+    .one-time-field .sub-input { min-width: 80px; flex:1; }
+    .notes-field { flex: 1.5; }
+    @media (max-width: 600px) {
+        .one-time-field { min-width: 100%; }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>DELO Finance Tracker</h1>
+
+    <div class="top-right-actions">
+        <div class="currency-btn" id="currency-toggle" onclick="toggleCurrencyMenu()">$</div>
+        <div class="currency-menu" id="currency-dropdown">
+            <div class="currency-search-container">
+                <input type="text" id="currency-search" placeholder="Search..." onkeyup="filterCurrencies()">
+            </div>
+            <div class="currency-list" id="currency-list">
+                <div class="currency-option" id="opt-USD" onclick="setCurrency('USD')">USD ($)</div>
+            <div class="currency-option" id="opt-CAD" onclick="setCurrency('CAD')">CAD (C$)</div>
+            <div class="currency-option" id="opt-EUR" onclick="setCurrency('EUR')">EUR (€)</div>
+            <div class="currency-option" id="opt-GBP" onclick="setCurrency('GBP')">GBP (£)</div>
+            <div class="currency-option" id="opt-INR" onclick="setCurrency('INR')">INR (₹)</div>
+            <div class="currency-option" id="opt-AUD" onclick="setCurrency('AUD')">AUD (A$)</div>
+            <div class="currency-option" id="opt-JPY" onclick="setCurrency('JPY')">JPY (¥)</div>
+            <div class="currency-option" id="opt-CNY" onclick="setCurrency('CNY')">CNY (¥)</div>
+            <div class="currency-option" id="opt-CHF" onclick="setCurrency('CHF')">CHF (CHF)</div>
+            <div class="currency-option" id="opt-SGD" onclick="setCurrency('SGD')">SGD (S$)</div>
+            <div class="currency-option" id="opt-NZD" onclick="setCurrency('NZD')">NZD (NZ$)</div>
+            <div class="currency-option" id="opt-MXN" onclick="setCurrency('MXN')">MXN ($)</div>
+            <div class="currency-option" id="opt-BRL" onclick="setCurrency('BRL')">BRL (R$)</div>
+            <div class="currency-option" id="opt-RUB" onclick="setCurrency('RUB')">RUB (₽)</div>
+            <div class="currency-option" id="opt-ZAR" onclick="setCurrency('ZAR')">ZAR (R)</div>
+            <div class="currency-option" id="opt-SEK" onclick="setCurrency('SEK')">SEK (kr)</div>
+            <div class="currency-option" id="opt-NOK" onclick="setCurrency('NOK')">NOK (kr)</div>
+            <div class="currency-option" id="opt-AED" onclick="setCurrency('AED')">AED (د.إ)</div>
+            <div class="currency-option" id="opt-AFN" onclick="setCurrency('AFN')">AFN (؋)</div>
+            <div class="currency-option" id="opt-ALL" onclick="setCurrency('ALL')">ALL (L)</div>
+            <div class="currency-option" id="opt-AMD" onclick="setCurrency('AMD')">AMD (֏)</div>
+            <div class="currency-option" id="opt-ANG" onclick="setCurrency('ANG')">ANG (ƒ)</div>
+            <div class="currency-option" id="opt-AOA" onclick="setCurrency('AOA')">AOA (Kz)</div>
+            <div class="currency-option" id="opt-ARS" onclick="setCurrency('ARS')">ARS ($)</div>
+            <div class="currency-option" id="opt-AWG" onclick="setCurrency('AWG')">AWG (ƒ)</div>
+            <div class="currency-option" id="opt-AZN" onclick="setCurrency('AZN')">AZN (₼)</div>
+            <div class="currency-option" id="opt-BAM" onclick="setCurrency('BAM')">BAM (KM)</div>
+            <div class="currency-option" id="opt-BBD" onclick="setCurrency('BBD')">BBD ($)</div>
+            <div class="currency-option" id="opt-BDT" onclick="setCurrency('BDT')">BDT (৳)</div>
+            <div class="currency-option" id="opt-BGN" onclick="setCurrency('BGN')">BGN (лв)</div>
+            <div class="currency-option" id="opt-BHD" onclick="setCurrency('BHD')">BHD (.د.ب)</div>
+            <div class="currency-option" id="opt-BIF" onclick="setCurrency('BIF')">BIF (FBu)</div>
+            <div class="currency-option" id="opt-BMD" onclick="setCurrency('BMD')">BMD ($)</div>
+            <div class="currency-option" id="opt-BND" onclick="setCurrency('BND')">BND ($)</div>
+            <div class="currency-option" id="opt-BOB" onclick="setCurrency('BOB')">BOB ($b)</div>
+            <div class="currency-option" id="opt-BSD" onclick="setCurrency('BSD')">BSD ($)</div>
+            <div class="currency-option" id="opt-BTN" onclick="setCurrency('BTN')">BTN (Nu.)</div>
+            <div class="currency-option" id="opt-BWP" onclick="setCurrency('BWP')">BWP (P)</div>
+            <div class="currency-option" id="opt-BYN" onclick="setCurrency('BYN')">BYN (Br)</div>
+            <div class="currency-option" id="opt-BZD" onclick="setCurrency('BZD')">BZD (BZ$)</div>
+            <div class="currency-option" id="opt-CDF" onclick="setCurrency('CDF')">CDF (FC)</div>
+            <div class="currency-option" id="opt-CLP" onclick="setCurrency('CLP')">CLP ($)</div>
+            <div class="currency-option" id="opt-COP" onclick="setCurrency('COP')">COP ($)</div>
+            <div class="currency-option" id="opt-CRC" onclick="setCurrency('CRC')">CRC (₡)</div>
+            <div class="currency-option" id="opt-CUP" onclick="setCurrency('CUP')">CUP (₱)</div>
+            <div class="currency-option" id="opt-CVE" onclick="setCurrency('CVE')">CVE ($)</div>
+            <div class="currency-option" id="opt-CZK" onclick="setCurrency('CZK')">CZK (Kč)</div>
+            <div class="currency-option" id="opt-DJF" onclick="setCurrency('DJF')">DJF (Fdj)</div>
+            <div class="currency-option" id="opt-DKK" onclick="setCurrency('DKK')">DKK (kr)</div>
+            <div class="currency-option" id="opt-DOP" onclick="setCurrency('DOP')">DOP (RD$)</div>
+            <div class="currency-option" id="opt-DZD" onclick="setCurrency('DZD')">DZD (دج)</div>
+            <div class="currency-option" id="opt-EGP" onclick="setCurrency('EGP')">EGP (£)</div>
+            <div class="currency-option" id="opt-ERN" onclick="setCurrency('ERN')">ERN (Nfk)</div>
+            <div class="currency-option" id="opt-ETB" onclick="setCurrency('ETB')">ETB (Br)</div>
+            <div class="currency-option" id="opt-FJD" onclick="setCurrency('FJD')">FJD ($)</div>
+            <div class="currency-option" id="opt-FKP" onclick="setCurrency('FKP')">FKP (£)</div>
+            <div class="currency-option" id="opt-GEL" onclick="setCurrency('GEL')">GEL (₾)</div>
+            <div class="currency-option" id="opt-GHS" onclick="setCurrency('GHS')">GHS (GH₵)</div>
+            <div class="currency-option" id="opt-GIP" onclick="setCurrency('GIP')">GIP (£)</div>
+            <div class="currency-option" id="opt-GMD" onclick="setCurrency('GMD')">GMD (D)</div>
+            <div class="currency-option" id="opt-GNF" onclick="setCurrency('GNF')">GNF (FG)</div>
+            <div class="currency-option" id="opt-GTQ" onclick="setCurrency('GTQ')">GTQ (Q)</div>
+            <div class="currency-option" id="opt-GYD" onclick="setCurrency('GYD')">GYD ($)</div>
+            <div class="currency-option" id="opt-HKD" onclick="setCurrency('HKD')">HKD ($)</div>
+            <div class="currency-option" id="opt-HNL" onclick="setCurrency('HNL')">HNL (L)</div>
+            <div class="currency-option" id="opt-HRK" onclick="setCurrency('HRK')">HRK (kn)</div>
+            <div class="currency-option" id="opt-HTG" onclick="setCurrency('HTG')">HTG (G)</div>
+            <div class="currency-option" id="opt-HUF" onclick="setCurrency('HUF')">HUF (Ft)</div>
+            <div class="currency-option" id="opt-IDR" onclick="setCurrency('IDR')">IDR (Rp)</div>
+            <div class="currency-option" id="opt-ILS" onclick="setCurrency('ILS')">ILS (₪)</div>
+            <div class="currency-option" id="opt-IQD" onclick="setCurrency('IQD')">IQD (ع.د)</div>
+            <div class="currency-option" id="opt-IRR" onclick="setCurrency('IRR')">IRR (﷼)</div>
+            <div class="currency-option" id="opt-ISK" onclick="setCurrency('ISK')">ISK (kr)</div>
+            <div class="currency-option" id="opt-JMD" onclick="setCurrency('JMD')">JMD (J$)</div>
+            <div class="currency-option" id="opt-JOD" onclick="setCurrency('JOD')">JOD (د.ا)</div>
+            <div class="currency-option" id="opt-KES" onclick="setCurrency('KES')">KES (KSh)</div>
+            <div class="currency-option" id="opt-KGS" onclick="setCurrency('KGS')">KGS (лв)</div>
+            <div class="currency-option" id="opt-KHR" onclick="setCurrency('KHR')">KHR (៛)</div>
+            <div class="currency-option" id="opt-KMF" onclick="setCurrency('KMF')">KMF (CF)</div>
+            <div class="currency-option" id="opt-KPW" onclick="setCurrency('KPW')">KPW (₩)</div>
+            <div class="currency-option" id="opt-KRW" onclick="setCurrency('KRW')">KRW (₩)</div>
+            <div class="currency-option" id="opt-KWD" onclick="setCurrency('KWD')">KWD (د.ك)</div>
+            <div class="currency-option" id="opt-KYD" onclick="setCurrency('KYD')">KYD ($)</div>
+            <div class="currency-option" id="opt-KZT" onclick="setCurrency('KZT')">KZT (₸)</div>
+            <div class="currency-option" id="opt-LAK" onclick="setCurrency('LAK')">LAK (₭)</div>
+            <div class="currency-option" id="opt-LBP" onclick="setCurrency('LBP')">LBP (£)</div>
+            <div class="currency-option" id="opt-LKR" onclick="setCurrency('LKR')">LKR (₨)</div>
+            <div class="currency-option" id="opt-LRD" onclick="setCurrency('LRD')">LRD ($)</div>
+            <div class="currency-option" id="opt-LSL" onclick="setCurrency('LSL')">LSL (L)</div>
+            <div class="currency-option" id="opt-LYD" onclick="setCurrency('LYD')">LYD (ل.د)</div>
+            <div class="currency-option" id="opt-MAD" onclick="setCurrency('MAD')">MAD (د.م.)</div>
+            <div class="currency-option" id="opt-MDL" onclick="setCurrency('MDL')">MDL (L)</div>
+            <div class="currency-option" id="opt-MGA" onclick="setCurrency('MGA')">MGA (Ar)</div>
+            <div class="currency-option" id="opt-MKD" onclick="setCurrency('MKD')">MKD (ден)</div>
+            <div class="currency-option" id="opt-MMK" onclick="setCurrency('MMK')">MMK (K)</div>
+            <div class="currency-option" id="opt-MNT" onclick="setCurrency('MNT')">MNT (₮)</div>
+            <div class="currency-option" id="opt-MOP" onclick="setCurrency('MOP')">MOP (MOP$)</div>
+            <div class="currency-option" id="opt-MRU" onclick="setCurrency('MRU')">MRU (UM)</div>
+            <div class="currency-option" id="opt-MUR" onclick="setCurrency('MUR')">MUR (₨)</div>
+            <div class="currency-option" id="opt-MVR" onclick="setCurrency('MVR')">MVR (Rf)</div>
+            <div class="currency-option" id="opt-MWK" onclick="setCurrency('MWK')">MWK (MK)</div>
+            <div class="currency-option" id="opt-MYR" onclick="setCurrency('MYR')">MYR (RM)</div>
+            <div class="currency-option" id="opt-MZN" onclick="setCurrency('MZN')">MZN (MT)</div>
+            <div class="currency-option" id="opt-NAD" onclick="setCurrency('NAD')">NAD ($)</div>
+            <div class="currency-option" id="opt-NGN" onclick="setCurrency('NGN')">NGN (₦)</div>
+            <div class="currency-option" id="opt-NIO" onclick="setCurrency('NIO')">NIO (C$)</div>
+            <div class="currency-option" id="opt-NPR" onclick="setCurrency('NPR')">NPR (₨)</div>
+            <div class="currency-option" id="opt-OMR" onclick="setCurrency('OMR')">OMR (﷼)</div>
+            <div class="currency-option" id="opt-PAB" onclick="setCurrency('PAB')">PAB (B/.)</div>
+            <div class="currency-option" id="opt-PEN" onclick="setCurrency('PEN')">PEN (S/.)</div>
+            <div class="currency-option" id="opt-PGK" onclick="setCurrency('PGK')">PGK (K)</div>
+            <div class="currency-option" id="opt-PHP" onclick="setCurrency('PHP')">PHP (₱)</div>
+            <div class="currency-option" id="opt-PKR" onclick="setCurrency('PKR')">PKR (₨)</div>
+            <div class="currency-option" id="opt-PLN" onclick="setCurrency('PLN')">PLN (zł)</div>
+            <div class="currency-option" id="opt-PYG" onclick="setCurrency('PYG')">PYG (Gs)</div>
+            <div class="currency-option" id="opt-QAR" onclick="setCurrency('QAR')">QAR (﷼)</div>
+            <div class="currency-option" id="opt-RON" onclick="setCurrency('RON')">RON (lei)</div>
+            <div class="currency-option" id="opt-RSD" onclick="setCurrency('RSD')">RSD (Дин.)</div>
+            <div class="currency-option" id="opt-RWF" onclick="setCurrency('RWF')">RWF (R₣)</div>
+            <div class="currency-option" id="opt-SAR" onclick="setCurrency('SAR')">SAR (﷼)</div>
+            <div class="currency-option" id="opt-SBD" onclick="setCurrency('SBD')">SBD ($)</div>
+            <div class="currency-option" id="opt-SCR" onclick="setCurrency('SCR')">SCR (₨)</div>
+            <div class="currency-option" id="opt-SDG" onclick="setCurrency('SDG')">SDG (ج.س.)</div>
+            <div class="currency-option" id="opt-SHP" onclick="setCurrency('SHP')">SHP (£)</div>
+            <div class="currency-option" id="opt-SLL" onclick="setCurrency('SLL')">SLL (Le)</div>
+            <div class="currency-option" id="opt-SOS" onclick="setCurrency('SOS')">SOS (S)</div>
+            <div class="currency-option" id="opt-SRD" onclick="setCurrency('SRD')">SRD ($)</div>
+            <div class="currency-option" id="opt-SSP" onclick="setCurrency('SSP')">SSP (£)</div>
+            <div class="currency-option" id="opt-STN" onclick="setCurrency('STN')">STN (Db)</div>
+            <div class="currency-option" id="opt-SYP" onclick="setCurrency('SYP')">SYP (£)</div>
+            <div class="currency-option" id="opt-SZL" onclick="setCurrency('SZL')">SZL (E)</div>
+            <div class="currency-option" id="opt-THB" onclick="setCurrency('THB')">THB (฿)</div>
+            <div class="currency-option" id="opt-TJS" onclick="setCurrency('TJS')">TJS (SM)</div>
+            <div class="currency-option" id="opt-TMT" onclick="setCurrency('TMT')">TMT (T)</div>
+            <div class="currency-option" id="opt-TND" onclick="setCurrency('TND')">TND (د.ت)</div>
+            <div class="currency-option" id="opt-TOP" onclick="setCurrency('TOP')">TOP (T$)</div>
+            <div class="currency-option" id="opt-TRY" onclick="setCurrency('TRY')">TRY (₺)</div>
+            <div class="currency-option" id="opt-TTD" onclick="setCurrency('TTD')">TTD (TT$)</div>
+            <div class="currency-option" id="opt-TWD" onclick="setCurrency('TWD')">TWD (NT$)</div>
+            <div class="currency-option" id="opt-TZS" onclick="setCurrency('TZS')">TZS (TSh)</div>
+            <div class="currency-option" id="opt-UAH" onclick="setCurrency('UAH')">UAH (₴)</div>
+            <div class="currency-option" id="opt-UGX" onclick="setCurrency('UGX')">UGX (USh)</div>
+            <div class="currency-option" id="opt-UYU" onclick="setCurrency('UYU')">UYU ($U)</div>
+            <div class="currency-option" id="opt-UZS" onclick="setCurrency('UZS')">UZS (лв)</div>
+            <div class="currency-option" id="opt-VEF" onclick="setCurrency('VEF')">VEF (Bs)</div>
+            <div class="currency-option" id="opt-VND" onclick="setCurrency('VND')">VND (₫)</div>
+            <div class="currency-option" id="opt-VUV" onclick="setCurrency('VUV')">VUV (VT)</div>
+            <div class="currency-option" id="opt-WST" onclick="setCurrency('WST')">WST (WS$)</div>
+            <div class="currency-option" id="opt-XAF" onclick="setCurrency('XAF')">XAF (FCFA)</div>
+            <div class="currency-option" id="opt-XCD" onclick="setCurrency('XCD')">XCD ($)</div>
+            <div class="currency-option" id="opt-XOF" onclick="setCurrency('XOF')">XOF (CFA)</div>
+            <div class="currency-option" id="opt-XPF" onclick="setCurrency('XPF')">XPF (₣)</div>
+            <div class="currency-option" id="opt-YER" onclick="setCurrency('YER')">YER (﷼)</div>
+            <div class="currency-option" id="opt-ZMW" onclick="setCurrency('ZMW')">ZMW (ZK)</div>
+            <div class="currency-option" id="opt-ZWL" onclick="setCurrency('ZWL')">ZWL (Z$)</div>
+            
+            </div>
+        </div>
+    </div>
+    
+    <div class="status" id="save-status">All changes saved locally ✓</div>
+    
+
+
+    <div class="static-title" style="margin-bottom: 10px;">Dashboard</div>
+    <div class="pill" style="flex-direction: column; padding: 20px 25px; gap: 15px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <select id="balance-timeframe" class="main-input" style="font-size: 16px; font-weight: 600; border-bottom: 1px dashed rgba(255,255,255,0.3); color: #fff; background: transparent; width: auto;" onchange="updateTimeframe(this.value)">
+                <option value="weekly" style="color: #fff; background: #000;">Weekly Leftover ▾</option>
+                <option value="monthly" selected style="color: #fff; background: #000;">Monthly Leftover ▾</option>
+                <option value="yearly" style="color: #fff; background: #000;">Yearly Leftover ▾</option>
+            </select>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="balance-amount positive" id="total-balance" style="font-size: 22px;">$0.00</div>
+                <span id="health-indicator" style="font-size: 18px;" title="Financial Health"></span>
+            </div>
+        </div>
+        <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); width: 100%; margin: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <span style="font-size: 14px; font-weight: 600; color: #ccc;">This Month's Expected Bill</span>
+            <div class="balance-amount" id="total-bill" style="font-size: 18px; color: #ff6b6b;">$0.00</div>
+        </div>
+    </div>
+    <div id="balance-hint" style="text-align: center; font-size: 11px; color: #888; margin-bottom: 30px;">
+        (Income - Frequent Expenses - Debt - One-Time Expenses)
+    </div>
+
+    <div class="category-header">Income</div>
+    <div id="income-list"></div>
+    <button type="button" class="add-btn" onclick="addItem('income')">+ Add Income</button>
+
+    <div class="category-header">Loans & Debt</div>
+    <div id="debt-list"></div>
+    <button type="button" class="add-btn" onclick="addItem('debt')">+ Add Loan</button>
+
+    <div class="category-header">Frequent Expenses</div>
+    <div id="expense-list"></div>
+    <button type="button" class="add-btn" onclick="addItem('expense')">+ Add Frequent Expense</button>
+
+    <div class="category-header">One-Time Expenses</div>
+    <div id="onetime-list"></div>
+    <button type="button" class="add-btn" onclick="addItem('oneTime')">+ Add One-Time Expense</button>
+
+    
+
+    <div class="footer-container">
+        <div class="logo-text">DELO</div>
+        <div class="by-text">By Moulik</div>
+        
+        <!-- Action Menu Container -->
+        <div class="data-transfer" aria-label="Data transfer">
+            <button class="data-transfer-btn" type="button" onclick="downloadAllData()">⬇️ Download Expenses &amp; Data</button>
+            <button class="data-transfer-btn" type="button" onclick="document.getElementById('data-file-input').click()">⬆️ Upload Expenses &amp; Data</button>
+            <input id="data-file-input" type="file" accept=".json,application/json" onchange="importAllData(event)">
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 12px;">
+            <button type="button" onclick="toggleTheme()" style="background: transparent; border: 1px solid rgba(0,0,0,0.2); color: #000; border-radius: 20px; padding: 6px 12px; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: all 0.2s;" id="theme-btn">🌙 Dark Mode</button>
+            <button type="button" onclick="clearAllData()" style="background: transparent; border: 1px solid rgba(0,0,0,0.2); color: #ff4d4d; border-radius: 20px; padding: 6px 12px; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: all 0.2s;">🗑️ Reset Data</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script>
+    const currencySymbols = {"USD": "$", "CAD": "C$", "EUR": "\u20ac", "GBP": "\u00a3", "INR": "\u20b9", "AUD": "A$", "JPY": "\u00a5", "CNY": "\u00a5", "CHF": "CHF", "SGD": "S$", "NZD": "NZ$", "MXN": "$", "BRL": "R$", "RUB": "\u20bd", "ZAR": "R", "SEK": "kr", "NOK": "kr", "AED": "\u062f.\u0625", "AFN": "\u060b", "ALL": "L", "AMD": "\u058f", "ANG": "\u0192", "AOA": "Kz", "ARS": "$", "AWG": "\u0192", "AZN": "\u20bc", "BAM": "KM", "BBD": "$", "BDT": "\u09f3", "BGN": "\u043b\u0432", "BHD": ".\u062f.\u0628", "BIF": "FBu", "BMD": "$", "BND": "$", "BOB": "$b", "BSD": "$", "BTN": "Nu.", "BWP": "P", "BYN": "Br", "BZD": "BZ$", "CDF": "FC", "CLP": "$", "COP": "$", "CRC": "\u20a1", "CUP": "\u20b1", "CVE": "$", "CZK": "K\u010d", "DJF": "Fdj", "DKK": "kr", "DOP": "RD$", "DZD": "\u062f\u062c", "EGP": "\u00a3", "ERN": "Nfk", "ETB": "Br", "FJD": "$", "FKP": "\u00a3", "GEL": "\u20be", "GHS": "GH\u20b5", "GIP": "\u00a3", "GMD": "D", "GNF": "FG", "GTQ": "Q", "GYD": "$", "HKD": "$", "HNL": "L", "HRK": "kn", "HTG": "G", "HUF": "Ft", "IDR": "Rp", "ILS": "\u20aa", "IQD": "\u0639.\u062f", "IRR": "\ufdfc", "ISK": "kr", "JMD": "J$", "JOD": "\u062f.\u0627", "KES": "KSh", "KGS": "\u043b\u0432", "KHR": "\u17db", "KMF": "CF", "KPW": "\u20a9", "KRW": "\u20a9", "KWD": "\u062f.\u0643", "KYD": "$", "KZT": "\u20b8", "LAK": "\u20ad", "LBP": "\u00a3", "LKR": "\u20a8", "LRD": "$", "LSL": "L", "LYD": "\u0644.\u062f", "MAD": "\u062f.\u0645.", "MDL": "L", "MGA": "Ar", "MKD": "\u0434\u0435\u043d", "MMK": "K", "MNT": "\u20ae", "MOP": "MOP$", "MRU": "UM", "MUR": "\u20a8", "MVR": "Rf", "MWK": "MK", "MYR": "RM", "MZN": "MT", "NAD": "$", "NGN": "\u20a6", "NIO": "C$", "NPR": "\u20a8", "OMR": "\ufdfc", "PAB": "B/.", "PEN": "S/.", "PGK": "K", "PHP": "\u20b1", "PKR": "\u20a8", "PLN": "z\u0142", "PYG": "Gs", "QAR": "\ufdfc", "RON": "lei", "RSD": "\u0414\u0438\u043d.", "RWF": "R\u20a3", "SAR": "\ufdfc", "SBD": "$", "SCR": "\u20a8", "SDG": "\u062c.\u0633.", "SHP": "\u00a3", "SLL": "Le", "SOS": "S", "SRD": "$", "SSP": "\u00a3", "STN": "Db", "SYP": "\u00a3", "SZL": "E", "THB": "\u0e3f", "TJS": "SM", "TMT": "T", "TND": "\u062f.\u062a", "TOP": "T$", "TRY": "\u20ba", "TTD": "TT$", "TWD": "NT$", "TZS": "TSh", "UAH": "\u20b4", "UGX": "USh", "UYU": "$U", "UZS": "\u043b\u0432", "VEF": "Bs", "VND": "\u20ab", "VUV": "VT", "WST": "WS$", "XAF": "FCFA", "XCD": "$", "XOF": "CFA", "XPF": "\u20a3", "YER": "\ufdfc", "ZMW": "ZK", "ZWL": "Z$"};
+    const currencyNames = {"USD": "United States Dollar America US", "CAD": "Canadian Dollar Canada", "EUR": "Euro Europe European Union", "GBP": "British Pound Sterling United Kingdom England UK", "INR": "Indian Rupee India", "AUD": "Australian Dollar Australia", "JPY": "Japanese Yen Japan", "CNY": "Chinese Yuan Renminbi China", "CHF": "Swiss Franc Switzerland", "SGD": "Singapore Dollar Singapore", "NZD": "New Zealand Dollar", "MXN": "Mexican Peso Mexico", "BRL": "Brazilian Real Brazil", "RUB": "Russian Ruble Russia", "ZAR": "South African Rand South Africa", "SEK": "Swedish Krona Sweden", "NOK": "Norwegian Krone Norway", "AED": "United Arab Emirates Dirham UAE", "AFN": "Afghan Afghani Afghanistan", "ALL": "Albanian Lek Albania", "AMD": "Armenian Dram Armenia", "ANG": "Netherlands Antillean Guilder", "AOA": "Angolan Kwanza Angola", "ARS": "Argentine Peso Argentina", "AWG": "Aruban Florin Aruba", "AZN": "Azerbaijani Manat Azerbaijan", "BAM": "Bosnia-Herzegovina Convertible Mark", "BBD": "Barbadian Dollar Barbados", "BDT": "Bangladeshi Taka Bangladesh", "BGN": "Bulgarian Lev Bulgaria", "BHD": "Bahraini Dinar Bahrain", "BIF": "Burundian Franc Burundi", "BMD": "Bermudan Dollar Bermuda", "BND": "Brunei Dollar Brunei", "BOB": "Bolivian Boliviano Bolivia", "BSD": "Bahamian Dollar Bahamas", "BTN": "Bhutanese Ngultrum Bhutan", "BWP": "Botswanan Pula Botswana", "BYN": "Belarusian Ruble Belarus", "BZD": "Belize Dollar Belize", "CDF": "Congolese Franc Congo", "CLP": "Chilean Peso Chile", "COP": "Colombian Peso Colombia", "CRC": "Costa Rican Col\u00f3n Costa Rica", "CUP": "Cuban Peso Cuba", "CVE": "Cape Verdean Escudo Cape Verde", "CZK": "Czech Republic Koruna Czechia", "DJF": "Djiboutian Franc Djibouti", "DKK": "Danish Krone Denmark", "DOP": "Dominican Peso Dominican Republic", "DZD": "Algerian Dinar Algeria", "EGP": "Egyptian Pound Egypt", "ERN": "Eritrean Nakfa Eritrea", "ETB": "Ethiopian Birr Ethiopia", "FJD": "Fijian Dollar Fiji", "FKP": "Falkland Islands Pound", "GEL": "Georgian Lari Georgia", "GHS": "Ghanaian Cedi Ghana", "GIP": "Gibraltar Pound", "GMD": "Gambian Dalasi Gambia", "GNF": "Guinean Franc Guinea", "GTQ": "Guatemalan Quetzal Guatemala", "GYD": "Guyanaese Dollar Guyana", "HKD": "Hong Kong Dollar", "HNL": "Honduran Lempira Honduras", "HRK": "Croatian Kuna Croatia", "HTG": "Haitian Gourde Haiti", "HUF": "Hungarian Forint Hungary", "IDR": "Indonesian Rupiah Indonesia", "ILS": "Israeli New Sheqel Israel", "IQD": "Iraqi Dinar Iraq", "IRR": "Iranian Rial Iran", "ISK": "Icelandic Kr\u00f3na Iceland", "JMD": "Jamaican Dollar Jamaica", "JOD": "Jordanian Dinar Jordan", "KES": "Kenyan Shilling Kenya", "KGS": "Kyrgystani Som Kyrgyzstan", "KHR": "Cambodian Riel Cambodia", "KMF": "Comorian Franc Comoros", "KPW": "North Korean Won North Korea", "KRW": "South Korean Won South Korea", "KWD": "Kuwaiti Dinar Kuwait", "KYD": "Cayman Islands Dollar", "KZT": "Kazakhstani Tenge Kazakhstan", "LAK": "Laotian Kip Laos", "LBP": "Lebanese Pound Lebanon", "LKR": "Sri Lankan Rupee Sri Lanka", "LRD": "Liberian Dollar Liberia", "LSL": "Lesotho Loti Lesotho", "LYD": "Libyan Dinar Libya", "MAD": "Moroccan Dirham Morocco", "MDL": "Moldovan Leu Moldova", "MGA": "Malagasy Ariary Madagascar", "MKD": "Macedonian Denar North Macedonia", "MMK": "Myanmar Kyat Burma", "MNT": "Mongolian Tugrik Mongolia", "MOP": "Macanese Pataca Macau", "MRU": "Mauritanian Ouguiya Mauritania", "MUR": "Mauritian Rupee Mauritius", "MVR": "Maldivian Rufiyaa Maldives", "MWK": "Malawian Kwacha Malawi", "MYR": "Malaysian Ringgit Malaysia", "MZN": "Mozambican Metical Mozambique", "NAD": "Namibian Dollar Namibia", "NGN": "Nigerian Naira Nigeria", "NIO": "Nicaraguan C\u00f3rdoba Nicaragua", "NPR": "Nepalese Rupee Nepal", "OMR": "Omani Rial Oman", "PAB": "Panamanian Balboa Panama", "PEN": "Peruvian Nuevo Sol Peru", "PGK": "Papua New Guinean Kina Papua New Guinea", "PHP": "Philippine Peso Philippines", "PKR": "Pakistani Rupee Pakistan", "PLN": "Polish Zloty Poland", "PYG": "Paraguayan Guarani Paraguay", "QAR": "Qatari Rial Qatar", "RON": "Romanian Leu Romania", "RSD": "Serbian Dinar Serbia", "RWF": "Rwandan Franc Rwanda", "SAR": "Saudi Riyal Saudi Arabia", "SBD": "Solomon Islands Dollar", "SCR": "Seychellois Rupee Seychelles", "SDG": "Sudanese Pound Sudan", "SHP": "Saint Helena Pound", "SLL": "Sierra Leonean Leone", "SOS": "Somali Shilling Somalia", "SRD": "Surinamese Dollar Suriname", "SSP": "South Sudanese Pound", "STN": "S\u00e3o Tom\u00e9 and Pr\u00edncipe Dobra", "SYP": "Syrian Pound Syria", "SZL": "Swazi Lilangeni Eswatini Swaziland", "THB": "Thai Baht Thailand", "TJS": "Tajikistani Somoni Tajikistan", "TMT": "Turkmenistani Manat Turkmenistan", "TND": "Tunisian Dinar Tunisia", "TOP": "Tongan Pa\u02bbanga Tonga", "TRY": "Turkish Lira Turkey", "TTD": "Trinidad and Tobago Dollar", "TWD": "New Taiwan Dollar Taiwan", "TZS": "Tanzanian Shilling Tanzania", "UAH": "Ukrainian Hryvnia Ukraine", "UGX": "Ugandan Shilling Uganda", "UYU": "Uruguayan Peso Uruguay", "UZS": "Uzbekistan Som", "VEF": "Venezuelan Bol\u00edvar Venezuela", "VND": "Vietnamese Dong Vietnam", "VUV": "Vanuatu Vatu", "WST": "Samoan Tala Samoa", "XAF": "CFA Franc BEAC Central Africa", "XCD": "East Caribbean Dollar", "XOF": "CFA Franc BCEAO West Africa", "XPF": "CFP Franc", "YER": "Yemeni Rial Yemen", "ZMW": "Zambian Kwacha Zambia", "ZWL": "Zimbabwean Dollar Zimbabwe"};
+
+        let data = JSON.parse(localStorage.getItem('deloFinanceData_v3')) || {
+        currency: 'USD',
+        balanceTimeframe: 'monthly',
+        income: [],
+        debt: [],
+        expense: [],
+        oneTime: []
+    };
+
+    // Ensure backwards compatibility with older localstorage saves
+    if (!data.currency) data.currency = 'USD';
+    if (!data.balanceTimeframe) data.balanceTimeframe = 'monthly';
+    if (!Array.isArray(data.income)) data.income = [];
+    if (!Array.isArray(data.debt)) data.debt = [];
+    if (!Array.isArray(data.expense)) data.expense = [];
+    if (!Array.isArray(data.oneTime)) data.oneTime = [];
+
+    let toastTimeout;
+
+    function fmt(num) {
+        if (num === null || num === undefined || isNaN(num)) return '';
+        return Number(num).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function filterCurrencies() {
+        const query = document.getElementById('currency-search').value.toLowerCase();
+        const options = document.querySelectorAll('.currency-option');
+        options.forEach(opt => {
+            const code = opt.id.replace('opt-', '');
+            const nameSearchString = (currencyNames[code] || '').toLowerCase();
+            const text = opt.innerText.toLowerCase();
+            
+            if (text.includes(query) || nameSearchString.includes(query)) {
+                opt.style.display = 'block';
+            } else {
+                opt.style.display = 'none';
+            }
+        });
+    }
+
+    function toggleCurrencyMenu() {
+        const menu = document.getElementById('currency-dropdown');
+        menu.classList.toggle('show');
+        if (menu.classList.contains('show')) {
+            document.getElementById('currency-search').value = '';
+            filterCurrencies();
+            setTimeout(() => document.getElementById('currency-search').focus(), 100);
+        }
+    }
+
+    document.addEventListener('click', function(event) {
+        const menu = document.getElementById('currency-dropdown');
+        const toggleBtn = document.getElementById('currency-toggle');
+        if (!menu.contains(event.target) && !toggleBtn.contains(event.target)) {
+            menu.classList.remove('show');
+        }
+    });
+
+    function setCurrency(code) {
+        data.currency = code;
+        saveData(true);
+        document.getElementById('currency-dropdown').classList.remove('show');
+    }
+
+    function showToast(message) {
+        const container = document.getElementById('toast-container');
+        const emojiMatch = message.match(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu);
+        const emoji = emojiMatch ? emojiMatch[0] : '✨';
+        
+        let content = `<div class="toast-message">${message}</div>`;
+        for(let i=0; i<12; i++) {
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const delay = Math.random() * 0.1;
+            const size = Math.random() * 20 + 30; 
+            content += `<div class="emoji-particle" style="left: ${left}%; top: ${top}%; animation-delay: ${delay}s; font-size: ${size}px;">${emoji}</div>`;
+        }
+        
+        container.innerHTML = content;
+        setTimeout(() => { container.classList.add('show'); }, 10);
+        
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            container.classList.remove('show');
+        }, 750); 
+    }
+
+    function getToastMessage(action, category) {
+        const messages = {
+            add_income: ["Making that bread! 🍞", "Get that bag! 💰", "Money moves! 💸"],
+            remove_income: ["Lost an income stream? 📉", "Less money coming in 😟"],
+            add_expense: ["Watch your budget! 🛒", "Another expense added 💳", "Swiping that card! 🛍️"],
+            remove_expense: ["Saving money! ✂️", "Expense cut! 🎉", "More cash in pocket! 🤑"],
+            add_debt: ["Taking on debt! 🏦", "Another loan added 📉"],
+            remove_debt: ["Paying off debt! 🎉", "Step to debt-free! 🙌", "Crushing it! 💪"],
+            add_oneTime: ["Splurged! 🛒", "New Purchase logged! 🛍️"],
+            remove_oneTime: ["Changed your mind? 🔄", "Purchase removed! ✂️"]
+        };
+        const options = messages[`${action}_${category}`] || ["Updated! ✨"];
+        return options[Math.floor(Math.random() * options.length)];
+    }
+
+    function saveData(silent = false) {
+        localStorage.setItem('deloFinanceData_v3', JSON.stringify(data));
+        if (!silent) {
+            const status = document.getElementById('save-status');
+            status.innerText = "Saving...";
+            status.style.color = "#000000";
+            setTimeout(() => {
+                status.innerText = "All changes saved locally ✓";
+                status.style.color = "#6b7280";
+            }, 500);
+        }
+        updateUI();
+    }
+
+    function updateTimeframe(val) {
+        data.balanceTimeframe = val;
+        saveData(true);
+    }
+
+    function updateItem(category, id, field, value) {
+        const item = data[category].find(i => i.id === id);
+        if (item) {
+            if (field === 'amount' || field === 'monthly' || field === 'tax') {
+                let cleanVal = value.toString().replace(/,/g, '');
+                item[field] = parseFloat(cleanVal) || 0;
+            } else {
+                item[field] = value;
+            }
+            // Save the data without rebuilding the form. Re-rendering on every keystroke
+            // was causing iPad/Safari to lose focus after the first character.
+            localStorage.setItem('deloFinanceData_v3', JSON.stringify(data));
+            updateDashboard();
+            refreshCalculatedRow(category, id);
+        }
+    }
+
+    function toggleMonthly(id) {
+        const item = data.debt.find(i => i.id === id);
+        if (item) {
+            item.hasMonthly = !item.hasMonthly;
+            if (item.hasMonthly && !item.monthly) item.monthly = 0;
+            saveData();
+        }
+    }
+
+    function deleteItem(category, id, btnElement) {
+        showToast(getToastMessage('remove', category));
+        const row = btnElement.closest('.item-row');
+        row.classList.add('removing');
+        
+        setTimeout(() => {
+            data[category] = data[category].filter(i => i.id !== id);
+            saveData();
+        }, 300); 
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    function renderList(category, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        // Protect the app from older/incomplete saved data.
+        if (!Array.isArray(data[category])) data[category] = [];
+        const sym = currencySymbols[data.currency] || '$';
+
+        container.innerHTML = data[category].map(item => {
+            const id = Number(item.id);
+            const safeName = escapeHtml(item.name || '');
+            const amount = Number(item.amount || 0);
+
+            let extraControls = '';
+
+            if (category === 'income') {
+                const tax = Math.min(100, Math.max(0, Number(item.tax) || 0));
+                const yearlyNet = amount * 12 * (1 - tax / 100);
+                extraControls = `
+                    <div class="details-row">
+                        <span>Yearly Net: <span class="yearly-net-value">${sym}${yearlyNet.toFixed(2)}</span></span>
+                        <div style="display:flex; align-items:center; gap:5px;">
+                            <span>Tax Rate:</span>
+                            <input class="sub-input live-edit" type="number" min="0" max="100" step="0.1"
+                                value="${tax}" placeholder="0"
+                                data-category="income" data-id="${id}" data-field="tax">
+                            <span>%</span>
+                        </div>
+                    </div>`;
+            } else if (category === 'debt') {
+                const monthlyPayment = Number(item.monthly || 0);
+                const payoffMonths = monthlyPayment > 0 ? Math.ceil(amount / monthlyPayment) : 0;
+                const payoffYears = Math.floor(payoffMonths / 12);
+                const payoffRemainder = payoffMonths % 12;
+                extraControls = item.showDetails !== false ? `
+                    <div class="details-row">
+                        <div style="display:flex; align-items:center; gap:5px;">
+                            <span>Monthly Pmt:</span>
+                            <span>${sym}</span>
+                            <input class="sub-input live-edit" type="number" min="0" step="0.01"
+                                value="${monthlyPayment || ''}" placeholder="0.00"
+                                data-category="debt" data-id="${id}" data-field="monthly">
+                        </div>
+                        <button class="text-btn dismiss-debt" type="button" onclick="dismissDebtDetails(${id})">Dismiss</button>
+                    </div>
+                    <div class="payoff-row">
+                        <span class="payoff-value">⌛ Time to payoff: ${payoffYears} yrs, ${payoffRemainder} mos</span>
+                    </div>` : '';
+            } else if (category === 'expense') {
+                const freq = item.frequency || 'monthly';
+                extraControls = `
+                    <div class="details-row">
+                        <span>Repeats</span>
+                        <select class="sub-input live-change" data-category="expense" data-id="${id}" data-field="frequency">
+                            <option value="weekly" ${freq === 'weekly' ? 'selected' : ''}>Weekly</option>
+                            <option value="monthly" ${freq === 'monthly' ? 'selected' : ''}>Monthly</option>
+                            <option value="yearly" ${freq === 'yearly' ? 'selected' : ''}>Yearly</option>
+                        </select>
+                    </div>`;
+            } else if (category === 'oneTime') {
+                const purchaseDate = escapeHtml(item.purchaseDate || '');
+                const purchaseCategory = escapeHtml(item.purchaseCategory || '');
+                const notes = escapeHtml(item.notes || '');
+                const status = item.status === 'paid' ? 'paid' : 'planned';
+                extraControls = `
+                    <div class="details-row one-time-details">
+                        <div class="one-time-field">
+                            <span>Purchase Date:</span>
+                            <input class="sub-input live-edit" type="date" value="${purchaseDate}"
+                                data-category="oneTime" data-id="${id}" data-field="purchaseDate">
+                        </div>
+                        <div class="one-time-field">
+                            <span>Category:</span>
+                            <input class="sub-input live-edit" type="text" value="${purchaseCategory}" placeholder="e.g. Electronics"
+                                data-category="oneTime" data-id="${id}" data-field="purchaseCategory" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="details-row one-time-details">
+                        <div class="one-time-field notes-field">
+                            <span>Notes:</span>
+                            <input class="sub-input live-edit" type="text" value="${notes}" placeholder="Optional notes"
+                                data-category="oneTime" data-id="${id}" data-field="notes" autocomplete="off">
+                        </div>
+                        <div class="one-time-field">
+                            <span>Status:</span>
+                            <select class="sub-input live-change" data-category="oneTime" data-id="${id}" data-field="status">
+                                <option value="planned" ${status === 'planned' ? 'selected' : ''}>Planned</option>
+                                <option value="paid" ${status === 'paid' ? 'selected' : ''}>Paid</option>
+                            </select>
+                        </div>
+                    </div>`;
+            }
+
+            const placeholder = 'Name';
+
+            return `
+                <div class="item-row pill" data-item-id="${id}">
+                    <div style="display:flex; justify-content:space-between; align-items:center; width:100%; gap:12px;">
+                        <div class="name-wrapper">
+                            <input class="main-input live-edit" type="text" value="${safeName}" placeholder="${placeholder}"
+                                data-category="${category}" data-id="${id}" data-field="name" autocomplete="off" autocorrect="off" spellcheck="false">
+                            <span class="edit-icon">✎</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:flex-end; width:50%;">
+                            <span style="font-size:18px; font-weight:700; margin-right:4px;">${sym}</span>
+                            <input class="main-input amount-input live-edit" type="number" min="0" step="0.01"
+                                value="${amount || ''}" placeholder="0.00"
+                                data-category="${category}" data-id="${id}" data-field="amount">
+                            <button class="delete-btn" type="button" aria-label="Delete item"
+                                onclick="deleteItem('${category}', ${id}, this)">×</button>
+                        </div>
+                    </div>
+                    ${extraControls}
+                </div>`;
+        }).join('');
+    }
+
+    function refreshCalculatedRow(category, id) {
+        const row = document.querySelector(`.item-row[data-item-id="${id}"]`);
+        const item = Array.isArray(data[category]) ? data[category].find(i => i.id === id) : null;
+        if (!row || !item) return;
+        const sym = currencySymbols[data.currency] || '$';
+
+        if (category === 'income') {
+            const yearlyNet = (Number(item.amount) || 0) * 12 * (1 - Math.min(100, Math.max(0, Number(item.tax) || 0)) / 100);
+            const el = row.querySelector('.yearly-net-value');
+            if (el) el.textContent = `${sym}${yearlyNet.toFixed(2)}`;
+        } else if (category === 'debt') {
+            const monthly = Number(item.monthly) || 0;
+            const months = monthly > 0 ? Math.ceil((Number(item.amount) || 0) / monthly) : 0;
+            const years = Math.floor(months / 12);
+            const remainder = months % 12;
+            const el = row.querySelector('.payoff-value');
+            if (el) el.textContent = `⌛ Time to payoff: ${years} yrs, ${remainder} mos`;
+        }
+    }
+
+    function addItem(category) {
+        if (!Array.isArray(data[category])) data[category] = [];
+        const newItem = { id: Date.now(), name: "", amount: 0 };
+        if (category === 'income') newItem.tax = 0;
+        if (category === 'debt') { newItem.hasMonthly = true; newItem.monthly = 0; newItem.showDetails = true; }
+        if (category === 'expense') newItem.frequency = 'monthly';
+        if (category === 'oneTime') {
+            newItem.purchaseDate = '';
+            newItem.purchaseCategory = '';
+            newItem.notes = '';
+            newItem.status = 'planned';
+        }
+        
+        data[category].push(newItem);
+        showToast(getToastMessage('add', category));
+        saveData();
+    }
+
+    
+    function dismissDebtDetails(id) {
+        const item = data.debt.find(i => i.id === id);
+        if (!item) return;
+        item.showDetails = false;
+        saveData();
+    }
+
+    function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle('dark-theme');
+        const isDark = body.classList.contains('dark-theme');
+        localStorage.setItem('delo-theme', isDark ? 'dark' : 'light');
+        document.getElementById('theme-btn').innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        
+        // Update meta color-scheme
+        document.querySelector('meta[name="color-scheme"]').content = isDark ? "dark" : "light";
+    }
+
+    function applySavedTheme() {
+        const savedTheme = localStorage.getItem('delo-theme');
+        const isDark = savedTheme === 'dark';
+        document.body.classList.toggle('dark-theme', isDark);
+        const themeBtn = document.getElementById('theme-btn');
+        if (themeBtn) themeBtn.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        const colorScheme = document.querySelector('meta[name="color-scheme"]');
+        if (colorScheme) colorScheme.content = isDark ? 'dark' : 'light';
+    }
+
+    // Apply saved theme on load
+    document.addEventListener('DOMContentLoaded', applySavedTheme);
+
+    function clearAllData() {
+        if(confirm("Are you sure you want to permanently delete all your financial data? This cannot be undone.")) {
+            localStorage.removeItem('deloFinanceData_v3');
+            location.reload();
+        }
+    }
+
+    function downloadAllData() {
+        const exportData = {
+            app: 'DELO Finance Tracker',
+            formatVersion: 1,
+            exportedAt: new Date().toISOString(),
+            data: JSON.parse(JSON.stringify(data)),
+            theme: localStorage.getItem('delo-theme') || 'light'
+        };
+
+        const json = JSON.stringify(exportData, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `delo-finance-backup-${new Date().toISOString().slice(0,10)}.json`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast('Backup downloaded! 💾');
+    }
+
+    function importAllData(event) {
+        const file = event.target.files && event.target.files[0];
+        event.target.value = '';
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function() {
+            try {
+                const imported = JSON.parse(reader.result);
+                const importedData = imported && imported.data ? imported.data : imported;
+
+                if (!importedData || typeof importedData !== 'object' ||
+                    !Array.isArray(importedData.income) ||
+                    !Array.isArray(importedData.debt) ||
+                    !Array.isArray(importedData.expense) ||
+                    !Array.isArray(importedData.oneTime)) {
+                    throw new Error('Invalid DELO backup file');
+                }
+
+                if (!confirm('Upload this backup and replace the data currently saved on this device?')) return;
+
+                data = {
+                    currency: importedData.currency || 'USD',
+                    balanceTimeframe: importedData.balanceTimeframe || 'monthly',
+                    income: importedData.income,
+                    debt: importedData.debt,
+                    expense: importedData.expense,
+                    oneTime: importedData.oneTime
+                };
+
+                data.income = data.income.map(i => ({ id: Number(i.id) || Date.now() + Math.random(), name: i.name || '', amount: Number(i.amount) || 0, tax: Number(i.tax) || 0, ...i }));
+                data.debt = data.debt.map(i => ({ id: Number(i.id) || Date.now() + Math.random(), name: i.name || '', amount: Number(i.amount) || 0, monthly: Number(i.monthly) || 0, hasMonthly: i.hasMonthly !== false, showDetails: i.showDetails !== false, ...i }));
+                data.expense = data.expense.map(i => ({ id: Number(i.id) || Date.now() + Math.random(), name: i.name || '', amount: Number(i.amount) || 0, frequency: i.frequency || 'monthly', ...i }));
+                data.oneTime = data.oneTime.map(i => ({ id: Number(i.id) || Date.now() + Math.random(), name: i.name || '', amount: Number(i.amount) || 0, purchaseDate: i.purchaseDate || '', purchaseCategory: i.purchaseCategory || '', notes: i.notes || '', status: i.status === 'paid' ? 'paid' : 'planned', ...i }));
+
+                if (imported.theme === 'dark' || imported.theme === 'light') {
+                    localStorage.setItem('delo-theme', imported.theme);
+                }
+
+                localStorage.setItem('deloFinanceData_v3', JSON.stringify(data));
+                applySavedTheme();
+                updateUI();
+                showToast('Your DELO data was restored! 🔄');
+            } catch (error) {
+                alert('That file could not be uploaded. Please choose a DELO backup JSON file.');
+            }
+        };
+        reader.onerror = function() {
+            alert('The backup file could not be read.');
+        };
+        reader.readAsText(file);
+    }
+
+    function updateUI() {
+        const sym = currencySymbols[data.currency] || '$';
+        document.getElementById('currency-toggle').innerText = sym;
+        
+        document.querySelectorAll('.currency-option').forEach(el => el.classList.remove('active'));
+        const activeOpt = document.getElementById(`opt-${data.currency}`);
+        if(activeOpt) activeOpt.classList.add('active');
+
+        document.getElementById('balance-timeframe').value = data.balanceTimeframe;
+
+        renderList('income', 'income-list');
+        renderList('debt', 'debt-list');
+        renderList('expense', 'expense-list');
+        renderList('oneTime', 'onetime-list');
+
+        updateDashboard();
+    }
+
+    function updateDashboard() {
+// Always calculate base monthly first
+const totalNetIncomeMonthly = data.income.reduce((sum, item) => {
+    const gross = Number(item.amount) || 0;
+    const tax = Math.min(100, Math.max(0, Number(item.tax) || 0));
+    return sum + gross * (1 - tax / 100);
+}, 0);
+
+const totalExpenseMonthly = data.expense.reduce((sum, item) => {
+    const amt = item.amount || 0;
+    const freq = item.frequency || 'monthly';
+    if (freq === 'weekly') return sum + (amt * 52 / 12);
+    if (freq === 'yearly') return sum + (amt / 12);
+    return sum + amt; 
+}, 0);
+
+const totalDebtMonthly = data.debt.reduce((sum, item) => {
+    return sum + (item.hasMonthly ? (item.monthly || 0) : (item.amount || 0));
+}, 0);
+
+const totalOneTime = data.oneTime.reduce((sum, item) => sum + (item.amount || 0), 0);
+
+const totalBillMonthly = totalExpenseMonthly + totalDebtMonthly + totalOneTime;
+document.getElementById('total-bill').innerText = `${sym}${fmt(totalBillMonthly)}`;
+
+let finalBalance = 0;
+let hintFreq = "Monthly";
+
+if (data.balanceTimeframe === 'weekly') {
+    finalBalance = (totalNetIncomeMonthly * 12 / 52) - (totalExpenseMonthly * 12 / 52) - (totalDebtMonthly * 12 / 52) - totalOneTime;
+    hintFreq = "Weekly";
+} else if (data.balanceTimeframe === 'yearly') {
+    finalBalance = (totalNetIncomeMonthly * 12) - (totalExpenseMonthly * 12) - (totalDebtMonthly * 12) - totalOneTime;
+    hintFreq = "Yearly";
+} else {
+    finalBalance = totalNetIncomeMonthly - totalBillMonthly;
+    hintFreq = "Monthly";
+}
+
+const balanceEl = document.getElementById('total-balance');
+const healthInd = document.getElementById('health-indicator');
+
+balanceEl.innerText = `${sym}${fmt(finalBalance)}`;
+
+if (finalBalance < 0) {
+    balanceEl.classList.remove('positive');
+    balanceEl.classList.add('negative');
+    healthInd.innerText = "🔴"; // Deficit
+} else if (finalBalance > 0) {
+    balanceEl.classList.remove('negative');
+    balanceEl.classList.add('positive');
+    healthInd.innerText = "🟢"; // Surplus
+} else {
+    balanceEl.classList.remove('negative');
+    balanceEl.classList.add('positive');
+    healthInd.innerText = "⚪"; // Exact zero
+}
+
+document.getElementById('balance-hint').innerText = `(${hintFreq} Net Income - Frequent Expenses - Debt - One-Time Expenses)`;
+    }
+
+
+    // Keep text/number fields focused while typing. We update state in place and never rebuild
+    // the cards during an input event, which prevents iPad/Safari from dismissing the keyboard.
+    document.addEventListener('input', function(event) {
+        const input = event.target.closest('.live-edit');
+        if (!input) return;
+        const category = input.dataset.category;
+        const id = Number(input.dataset.id);
+        const field = input.dataset.field;
+        updateItem(category, id, field, input.value);
+    });
+
+    document.addEventListener('change', function(event) {
+        const control = event.target.closest('.live-change');
+        if (!control) return;
+        updateItem(control.dataset.category, Number(control.dataset.id), control.dataset.field, control.value);
+    });
+
+    updateUI();
+</script>
+
+</body>
+</html>
